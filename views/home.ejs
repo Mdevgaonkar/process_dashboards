@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+        <% include includes/header.ejs %>
+        <!-- Page Content -->
+        <div class="col-lg-6 col-lg-offset-3" id="tbl_updates">
+                <div class="panel panel-default">
+                    <!-- <div class="panel-heading">
+                        Bordered Table
+                    </div> -->
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive table-bordered">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Process</th>
+                                        <th>Sub Process</th>
+                                        <th>Status</th>
+                                        <th>Start Time</th>
+                                        <!-- <th>Last Update Time</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% tb_upd_rows.forEach((row)=>{%>
+                                        <tr>
+                                            <td class="<% if(row.proc_status == 'SUCCEEDED'){%>
+                                                    success
+                                                <% }else if(row.proc_status == 'YET-TO-RUN' || row.proc_status == 'RUNNING') {%>
+                                                    info
+                                                <% }else if(row.proc_status == 'ON-HOLD' ) {%>
+                                                    warning  
+                                                <% }else if(row.proc_status == 'ABORTED' || row.proc_status == 'FAILED') {%>
+                                                    danger
+                                                <% } %>"></td>
+                                            <td>
+                                                <%= row.proc_name%>
+                                            </td>
+                                            <td>
+                                                    <%= row.sub_proc_name%>
+                                            </td>
+                                            <td style="color: <% if(row.proc_status == 'SUCCEEDED'){%>
+                                                    green
+                                                <% }else if(row.proc_status == 'YET-TO-RUN' || row.proc_status == 'RUNNING') {%>
+                                                    dodgerblue
+                                                <% }else if(row.proc_status == 'ON-HOLD' ) {%>
+                                                    yellowgreen
+                                                <% }else if(row.proc_status == 'ABORTED' || row.proc_status == 'FAILED') {%>
+                                                    red
+                                                <% } %>">
+                                                   <strong> <%= row.proc_status%></strong>
+                                            </td>
+                                            <td>
+                                                    <%= row.proc_start_time%>
+                                            </td>
+                                            <!-- <td>
+                                                    <%= row.proc_last_upd_time%>
+                                            </td> -->
+                                        </tr>
+                                    <% });%>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        <!-- Page Content -->
+        <% include includes/footer.ejs %>
+</body>
+<script src="/js/lib/jquery.js"></script>
+<script src="/js/lib/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+</html>
