@@ -130,7 +130,20 @@ footer {
   display: inline-block;
 }
 
+.navbar-tabs {
+  margin-top: 50px;
+}
 
+.navbar-center
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+  height:100%;
+}
 /* Panels
 /* ------------------------- */
 
