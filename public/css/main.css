@@ -121,6 +121,16 @@ footer {
   color: #262626;
 }
 
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+.navbar-nav  li {
+  float: none;
+  display: inline-block;
+}
+
+
 /* Panels
 /* ------------------------- */
 
